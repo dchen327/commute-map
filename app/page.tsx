@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { APIProvider, Map, useMap } from "@vis.gl/react-google-maps";
+import {
+  AdvancedMarker,
+  APIProvider,
+  Map,
+  useMap,
+} from "@vis.gl/react-google-maps";
 import geoJsonData from "@/app/assets/sq_merged_3978.geojson";
 import Legend from "./components/Legend";
 import { getColorForDuration } from "./utils/colorUtils";
@@ -162,7 +167,26 @@ export default function Home() {
           defaultZoom={14}
           gestureHandling={"greedy"}
           disableDefaultUI={true}
+          mapId={"b1b1b1b1b1b1b1b1"}
         >
+          {/* Databricks Office Marker */}
+          <AdvancedMarker
+            position={{ lat: 37.79122360055304, lng: -122.39364494609279 }}
+          >
+            <div className="flex items-center justify-center w-6 h-6 bg-black text-white rounded-full font-bold shadow-lg text-xs">
+              1
+            </div>
+          </AdvancedMarker>
+
+          {/* Letterman Location Marker */}
+          <AdvancedMarker
+            position={{ lat: 37.79887630295745, lng: -122.44933665907878 }}
+          >
+            <div className="flex items-center justify-center w-6 h-6 bg-black text-white rounded-full font-bold shadow-lg text-xs">
+              2
+            </div>
+          </AdvancedMarker>
+
           <GeoJsonLayer
             office1Minutes={office1Minutes}
             office2Minutes={office2Minutes}
